@@ -40,15 +40,16 @@ onload = function(){
             var strs = document.getElementById("input").value.split("\n");
             var h = strs.length;
             var maxW = 0;
-            for(var i=0; i < strs.length; ++i){
+            var i = 0, j = 0;
+            for(i=0; i < strs.length; ++i){
                 maxW = Math.max(maxW, strs[i].length);
             }
             document.getElementById("board").width = maxW * width + (maxW-1) * padWidth;
             document.getElementById("board").height = h * width + (h-1) * padWidth;
 
-            for(var i=0; i < h; ++i){
-                for(var j=0; j < maxW; ++j){
-                    if(strs[i][j] == 1){
+            for(i=0; i < h; ++i){
+                for(j=0; j < maxW; ++j){
+                    if(strs[i][j] === "1"){
                         context.drawImage(alive, j * (width + padWidth), i * (width + padWidth));
                     }else{
                         context.drawImage(dead , j * (width + padWidth), i * (width + padWidth));
@@ -58,7 +59,7 @@ onload = function(){
                     }
                 }
                 if(i < h - 1){
-                    for(var j=0; j < maxW; ++j){
+                    for(j=0; j < maxW; ++j){
                         context.drawImage(horizon , j * (width + padWidth), (i + 1) * width + i * padWidth);
                         if(j < maxW - 1){
                             context.drawImage(padding, (j+1) * width + j * padWidth, (i + 1) * width + i * padWidth);
