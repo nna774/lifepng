@@ -73,21 +73,14 @@ onload = function(){
 lifepng.next = function (){
     function sumMoore(map, i, j){
         var sum = 0;
-        if(map[i-1] !== null){
-            if(map[i-1][j-1] !== null && map[i-1][j-1] == 1) {++sum;}
-            if(map[i-1][ j ] !== null && map[i-1][ j ] == 1) {++sum;}
-            if(map[i-1][j+1] !== null && map[i-1][j+1] == 1) {++sum;}
+        for(var k=i-1; k <= i+1; ++k){
+            if(typeof map[k] !== "undefined"){
+                if(map[k][j-1] === "1") { ++sum; }
+                if(map[k][ j ] === "1" && k !== i) { ++sum; }
+                if(map[k][j+1] === "1") { ++sum; }
+            }
         }
-        if(map[i] !== null){
-            if(map[i][j-1] !== null && map[i][j-1] == 1) { ++sum; }
-            if(map[i][j+1] !== null && map[i][j+1] == 1) { ++sum; }
-        }
-        if(map[i+1] != null){
-            if(map[i+1][j-1] !== null && map[i+1][j-1] == 1) { ++sum; }
-            if(map[i+1][ j ] !== null && map[i+1][ j ] == 1) { ++sum; }
-            if(map[i+1][j+1] !== null && map[i+1][j+1] == 1) { ++sum; }
-        }
-            
+        
         return sum;
     }
     
