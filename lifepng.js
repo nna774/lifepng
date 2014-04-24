@@ -4,22 +4,22 @@ var lifepng = {
 };
 
 onload = function(){
-    var imgPATH = "life/";
+    var dataURIPATH = "data:image/png;base64,";
     var width = lifepng.width;
     var padWidth = lifepng.padWidth;
     var canvas = document.getElementById('board');
     if (canvas.getContext('2d')) {
         var context = canvas.getContext('2d');
         var dead = new Image();
-        dead.src = imgPATH + "dead.png"
+        dead.src = dataURIPATH + "iVBORw0KGgoAAAANSUhEUgAAAAwAAAAMCAIAAADZF8uwAAAADklEQVQY02NgGAVDFQAAAbwAAS4U1UAAAAAASUVORK5CYII=";
         var alive = new Image();
-        alive.src = imgPATH + "alive.png"
+        alive.src = dataURIPATH + "iVBORw0KGgoAAAANSUhEUgAAAAwAAAAMAQMAAABsu86kAAAABlBMVEUAAABnojfMcx8OAAAAH0lEQVQIW2Pk/8gon8ho38hYn8j4/yMC1YMFgVL8HwH74g4NhAvnhAAAAABJRU5ErkJggg==";
         var horizon = new Image();
-        horizon.src = imgPATH + "horizon.png"
+        horizon.src = dataURIPATH + "iVBORw0KGgoAAAANSUhEUgAAAAwAAAACCAIAAADjHarAAAAAE0lEQVQI12Pcd9OWgRBgYiACAACE/wHYb+fiwwAAAABJRU5ErkJggg==";
         var vertical = new Image();
-        vertical.src = imgPATH + "vertical.png"
+        vertical.src = dataURIPATH + "iVBORw0KGgoAAAANSUhEUgAAAAIAAAAMCAIAAADH3vsDAAAAFUlEQVQI12Pcd9OWgYGBiYGBgWoUAJqtAewHHgKkAAAAAElFTkSuQmCC";
         var padding = new Image();
-        padding.src = imgPATH + "padding.png"
+        padding.src = dataURIPATH + "iVBORw0KGgoAAAANSUhEUgAAAAIAAAACCAIAAAD91JpzAAAAFklEQVQI12Pcd9OWgYGBiYGBgYGBAQAWmwHYaTE5PAAAAABJRU5ErkJggg==";
         var Loader = function(expectedCnt, callback){
             var cnt = 0;
             return function(){
