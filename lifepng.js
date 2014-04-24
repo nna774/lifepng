@@ -24,9 +24,9 @@ onload = function(){
             var cnt = 0;
             return function(){
                 if(++cnt == expectedCnt){ callback(); }
-            }
+            };
         };
-        var loader = Loader(5, function(){
+        var loader = new Loader(5, function(){
             document.getElementById("status").innerText = "準備完了";
             document.getElementById("status").style.display="none";
         });
@@ -81,19 +81,19 @@ onload = function(){
 lifepng.next = function (){
     function sumMoore(map, i, j){
         var sum = 0;
-        if(map[i-1] != null){
-            if(map[i-1][j-1] != null && map[i-1][j-1] == 1) ++sum;
-            if(map[i-1][ j ] != null && map[i-1][ j ] == 1) ++sum;
-            if(map[i-1][j+1] != null && map[i-1][j+1] == 1) ++sum;
+        if(map[i-1] !== null){
+            if(map[i-1][j-1] !== null && map[i-1][j-1] == 1) ++sum;
+            if(map[i-1][ j ] !== null && map[i-1][ j ] == 1) ++sum;
+            if(map[i-1][j+1] !== null && map[i-1][j+1] == 1) ++sum;
         }
-        if(map[i] != null){
-            if(map[i][j-1] != null && map[i][j-1] == 1) ++sum;
-            if(map[i][j+1] != null && map[i][j+1] == 1) ++sum;
+        if(map[i] !== null){
+            if(map[i][j-1] !== null && map[i][j-1] == 1) ++sum;
+            if(map[i][j+1] !== null && map[i][j+1] == 1) ++sum;
         }
         if(map[i+1] != null){
-            if(map[i+1][j-1] != null && map[i+1][j-1] == 1) ++sum;
-            if(map[i+1][ j ] != null && map[i+1][ j ] == 1) ++sum;
-            if(map[i+1][j+1] != null && map[i+1][j+1] == 1) ++sum;
+            if(map[i+1][j-1] !== null && map[i+1][j-1] == 1) ++sum;
+            if(map[i+1][ j ] !== null && map[i+1][ j ] == 1) ++sum;
+            if(map[i+1][j+1] !== null && map[i+1][j+1] == 1) ++sum;
         }
             
         return sum;
