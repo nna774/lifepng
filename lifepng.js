@@ -23,7 +23,7 @@ onload = function(){
         var Loader = function(expectedCnt, callback){
             var cnt = 0;
             return function(){
-                if(++cnt == expectedCnt){ callback(); }
+                if(++cnt === expectedCnt){ callback(); }
             };
         };
         var loader = new Loader(5, function(){
@@ -96,7 +96,7 @@ lifepng.next = function (){
     for(i=0; i < h; ++i){
         for(j=0; j < maxW; ++j){
             var sum = sumMoore(strs, i, j);
-            if(strs[i][j] == 1){
+            if(strs[i][j] === "1"){
                 if(sum === 2 || sum === 3 ){ map[i][j] = '1'; }
                 else { map[i][j] = '0'; }
             }
@@ -109,7 +109,7 @@ lifepng.next = function (){
     for(i=0; i < h; ++i) { map[i] = map[i].join(""); }
     document.getElementById("input").value = map.join("\n");
     this.draw();
-}
+};
 
 lifepng.randomize = function(){
     var strs = document.getElementById("input").value.split("\n");
@@ -121,7 +121,7 @@ lifepng.randomize = function(){
     for(i=0; i < h; ++i) { map[i] = []; }
     for(i=0; i < h; ++i){
         for(j=0; j < maxW; ++j) {
-            map[i][j] = !(Math.random()+.5|0)+0;
+            map[i][j] = !(Math.random()+0.5|0)+0;
         }
     }
     for(i=0; i < h; ++i) { map[i] = map[i].join(""); }
