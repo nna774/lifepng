@@ -88,23 +88,24 @@ lifepng.next = function (){
     var map = [];
     var h = strs.length;
     var maxW = 0;
-    for(var i=0; i < strs.length; ++i) { maxW = Math.max(maxW, strs[i].length); }
-    for(var i=0; i < h; ++i) { map[i] = []; }
+    var i = 0, j = 0;
+    for(i=0; i < strs.length; ++i) { maxW = Math.max(maxW, strs[i].length); }
+    for(i=0; i < h; ++i) { map[i] = []; }
 
-    for(var i=0; i < h; ++i){
-        for(var j=0; j < maxW; ++j){
+    for(i=0; i < h; ++i){
+        for(j=0; j < maxW; ++j){
             var sum = sumMoore(strs, i, j);
             if(strs[i][j] == 1){
-                if(sum == 2 || sum == 3 ){ map[i][j] = '1'; }
+                if(sum === 2 || sum === 3 ){ map[i][j] = '1'; }
                 else { map[i][j] = '0'; }
             }
             else{
-                if(sum == 3) { map[i][j] = '1'; }
+                if(sum === 3) { map[i][j] = '1'; }
                 else { map[i][j] = '0'; }
             }
         }
     }
-    for(var i=0; i < h; ++i) { map[i] = map[i].join(""); }
+    for(i=0; i < h; ++i) { map[i] = map[i].join(""); }
     document.getElementById("input").value = map.join("\n");
     this.draw();
 }
@@ -114,14 +115,15 @@ lifepng.randomize = function(){
     var map = [];
     var h = strs.length;
     var maxW = 0;
-    for(var i=0; i < strs.length; ++i) { maxW = Math.max(maxW, strs[i].length); }
-    for(var i=0; i < h; ++i) { map[i] = []; }
-    for(var i=0; i < h; ++i){
-        for(var j=0; j < maxW; ++j) {
+    var i = 0, j = 0;
+    for(i=0; i < strs.length; ++i) { maxW = Math.max(maxW, strs[i].length); }
+    for(i=0; i < h; ++i) { map[i] = []; }
+    for(i=0; i < h; ++i){
+        for(j=0; j < maxW; ++j) {
             map[i][j] = !(Math.random()+.5|0)+0;
         }
     }
-    for(var i=0; i < h; ++i) { map[i] = map[i].join(""); }
+    for(i=0; i < h; ++i) { map[i] = map[i].join(""); }
     document.getElementById("input").value = map.join("\n");
     this.draw();
 };
