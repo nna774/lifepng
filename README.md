@@ -1,4 +1,5 @@
 # lifepng
+[![Code Climate](https://codeclimate.com/github/nna774/lifepng.png)](https://codeclimate.com/github/nna774/lifepng)
 
 ## なにこれ
 
