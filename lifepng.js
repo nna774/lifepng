@@ -41,9 +41,7 @@ onload = function(){
             var h = strs.length;
             var maxW = 0;
             var i = 0, j = 0;
-            for(i=0; i < strs.length; ++i){
-                maxW = Math.max(maxW, strs[i].length);
-            }
+            strs.forEach(function(elem){ maxW = Math.max(maxW, elem.length); });
             document.getElementById("board").width = maxW * width + (maxW-1) * padWidth;
             document.getElementById("board").height = h * width + (h-1) * padWidth;
 
@@ -90,7 +88,7 @@ lifepng.next = function (){
     var h = strs.length;
     var maxW = 0;
     var i = 0, j = 0;
-    for(i=0; i < strs.length; ++i) { maxW = Math.max(maxW, strs[i].length); }
+    strs.forEach(function(elem){ maxW = Math.max(maxW, elem.length); });
     for(i=0; i < h; ++i) { map[i] = []; }
 
     for(i=0; i < h; ++i){
@@ -117,11 +115,11 @@ lifepng.randomize = function(){
     var h = strs.length;
     var maxW = 0;
     var i = 0, j = 0;
-    for(i=0; i < strs.length; ++i) { maxW = Math.max(maxW, strs[i].length); }
+    strs.forEach(function(elem){ maxW = Math.max(maxW, elem.length); });
     for(i=0; i < h; ++i) { map[i] = []; }
     for(i=0; i < h; ++i){
         for(j=0; j < maxW; ++j) {
-            map[i][j] = Math.floor(Math.random()+0.5);
+            map[i][j] = Math.round(Math.random());
         }
     }
     for(i=0; i < h; ++i) { map[i] = map[i].join(""); }
