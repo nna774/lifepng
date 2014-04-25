@@ -121,7 +121,7 @@ lifepng.randomize = function(){
     for(i=0; i < h; ++i) { map[i] = []; }
     for(i=0; i < h; ++i){
         for(j=0; j < maxW; ++j) {
-            map[i][j] = !(Math.random()+0.5|0)+0;
+            map[i][j] = Math.floor(Math.random()+0.5);
         }
     }
     for(i=0; i < h; ++i) { map[i] = map[i].join(""); }
